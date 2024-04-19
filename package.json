@@ -1,0 +1,21 @@
+{
+    "name": "progetto3",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node .",
+        "start:watch": "node --watch ."
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@fastify/static": "^7.0.3",
+        "@fastify/view": "^9.0.0",
+        "ejs": "^3.1.10",
+        "fastify": "^4.26.2",
+        "pino-pretty": "^11.0.0"
+    }
+}
