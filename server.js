@@ -29,18 +29,15 @@ export default async function createServer() {
         engine: {
             ejs: ejs,
         },
+        layout: "template.ejs",
     });
 
     app.get("/", async (req, res) => {
-        return res.view("./views/index.ejs", {fruits: fruits});
+        return res.view("./views/index.ejs", { fruits: fruits });
     });
 
     app.get("/about", async (req, res) => {
-        const content = await readFile("./pages/about.html", {
-            encoding: "utf-8",
-        });
-        res.header("Content-Type", "text/html");
-        return content;
+        return res.view("./views/about.ejs");
     });
 
     return app;
