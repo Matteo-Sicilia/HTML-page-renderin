@@ -1,12 +1,15 @@
-
-<body>
-    <h1>Benvenuto nel bellissimo sito</h1>
-    <% if (fruits.length === 0) { %>
-    <h3>non ci sono frutti</h3>
-    <% } else %>
-    <ul>
-        <% for(let f of fruits) {%>
-        <li><%= f %></li>
-        <% } %>
-    </ul>
-</body>
+<div class="row m-4">
+    <div class="col-4">
+        <ul class="list-group">
+            <% for(let t of todos) {%>
+            <li class="list-group-item">
+                <span><%= t.label %></span>
+                <span>
+                    <a href="" class="btn btn-primary"><i class="fa fa-check"></i></a>
+                    <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                </span>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+</div>
