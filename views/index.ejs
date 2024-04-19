@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/static/index.css" />
-        <title>Bellissimo Sito</title>
-    </head>
-    <body>
-        <h1>Benvenuto nel bellissimo sito</h1>
-        <% if (fruits.length === 0) { %>
-        <h3>non ci sono frutti</h3>
-        <% } else %>
-        <ul>
-            <% for(let f of fruits) {%>
-            <li><%= f %></li>
-            <% } %>
-        </ul>
-    </body>
-</html>
+
+<body>
+    <h1>Benvenuto nel bellissimo sito</h1>
+    <% if (fruits.length === 0) { %>
+    <h3>non ci sono frutti</h3>
+    <% } else %>
+    <ul>
+        <% for(let f of fruits) {%>
+        <li><%= f %></li>
+        <% } %>
+    </ul>
+</body>
