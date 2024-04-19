@@ -1,12 +1,18 @@
 <div class="row m-4">
     <div class="col-4">
         <ul class="list-group">
-            <% for(let t of todos) {%>
+            <% for(let todo of todos){ %>
             <li class="list-group-item">
-                <span><%= t.label %></span>
+                <span class="<%= todo.done ? 'completed' : '' %>">
+                    <%= todo.label %>
+                </span>
                 <span>
-                    <a href="" class="btn btn-primary"><i class="fa fa-check"></i></a>
-                    <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                    <a href="/?done=<%= todo.id %>" class="btn btn-primary">
+                        <i class="fa fa-check"></i>
+                    </a>
+                    <a href="/?delete=<%= todo.id %>" class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </a>
                 </span>
             </li>
             <% } %>

@@ -40,7 +40,7 @@ export default async function createServer() {
     });
 
     app.get("/", async (req, res) => {
-        const del = req.query.delete;
+        const { delete: del, done } = req.query;
 
         if (del) {
             const delResult = await app.pg.query(
@@ -50,8 +50,23 @@ export default async function createServer() {
             if (delResult.rowCount === 0) {
                 throw new Error("Not found");
             }
+            res.redirect("/");
         }
-        const result = await app.pg.query("SELECT * FROM todos");
+
+        if (done) {
+            const doneResult = await app.pg.query(
+                "UPDATE todos SET done = NOT done WHERE id = $1",
+                [done]
+            );
+            if (doneResult.rowCount === 0) {
+                throw new Error("Not found");
+            }
+            res.redirect("/");
+        }
+
+        const result = await app.pg.query(
+            "SELECT * FROM todos ORDER BY id DESC"
+        );
         return res.view("./views/index.ejs", { todos: result.rows });
     });
 
