@@ -80,7 +80,6 @@ body {
     border: 5px dashed #00ff00;
 }
 
-
 label {
     font-family: "Comic Sans MS", cursive;
     font-size: 12px;
@@ -93,7 +92,6 @@ input,
     font-style: italic;
 }
 
-
 .form-group {
     position: relative;
     left: 20px;
@@ -105,7 +103,7 @@ input,
 }
 .btn {
     background-color: #ff69b4;
-    border: 3px outset #ffd700; 
+    border: 3px outset #ffd700;
     font-family: "Impact", fantasy;
     font-size: 18px;
 }
@@ -150,4 +148,67 @@ label {
 }
 .btn:active {
     /* Aggiungi suono al clic */
+}
+
+h1 {
+    text-shadow: 3px 3px red, -2px -2px blue;
+    -webkit-text-stroke: 1px green;
+}
+
+/* Elementi sovrapposti */
+.card {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    z-index: -1;
+}
+
+
+/* Pattern psichedelico */
+.card {
+    background-image: repeating-conic-gradient(
+        red 0deg 10deg,
+        yellow 10deg 20deg,
+        green 20deg 30deg,
+        blue 30deg 40deg
+    );
+}
+
+/* Font casuali */
+h1 {
+    font-family: "Comic Sans MS";
+}
+p {
+    font-family: "Impact";
+}
+label {
+    font-family: "Papyrus";
+}
+
+/* Posizionamento casuale */
+.btn {
+    top: calc(50% + random(100px) - 50px);
+    left: calc(50% + random(200px) - 100px);
+}
+
+/* Vibrazione */
+@keyframes vibrate {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-2px, -2px);
+    }
+    50% {
+        transform: translate(0, 0);
+    }
+    75% {
+        transform: translate(2px, 2px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+.error {
+    animation: vibrate 0.1s infinite;
 }
