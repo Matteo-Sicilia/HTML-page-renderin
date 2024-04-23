@@ -6,6 +6,7 @@ import { dirname, join } from "node:path";
 import fastifyView from "@fastify/view";
 import ejs from "ejs";
 import fastifyPostgres from "@fastify/postgres";
+import fastifyFormbody from "@fastify/formbody";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -30,6 +31,8 @@ export default async function createServer() {
         },
         layout: "template.ejs",
     });
+
+    await app.register(fastifyFormbody);
 
     await app.register(fastifyPostgres, {
         host: "127.0.0.1",

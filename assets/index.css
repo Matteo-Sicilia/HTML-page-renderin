@@ -75,5 +75,79 @@ body {
     text-decoration: line-through;
 }
 
+.card {
+    background-color: #ccff00;
+    border: 5px dashed #00ff00;
+}
 
 
+label {
+    font-family: "Comic Sans MS", cursive;
+    font-size: 12px;
+    font-weight: bold;
+}
+input,
+.form-check-label {
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    font-style: italic;
+}
+
+
+.form-group {
+    position: relative;
+    left: 20px;
+}
+.form-check {
+    position: absolute;
+    top: 10px;
+    right: -50px;
+}
+.btn {
+    background-color: #ff69b4;
+    border: 3px outset #ffd700; 
+    font-family: "Impact", fantasy;
+    font-size: 18px;
+}
+
+table {
+    border: 4px double #ff0000;
+}
+th,
+td {
+    background-color: #ffff00;
+    padding: 2px 5px;
+}
+tr:nth-child(even) td {
+    background-color: #00ff00; /* Verde lime alternato */
+}
+
+/* Messaggi di errore invisibili */
+.error {
+    color: #ffff00; /* Giallo su giallo, impossibile da leggere */
+    font-size: 8px;
+}
+
+/* Animazioni inutili */
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+label {
+    animation: blink 1s infinite;
+}
+
+/* Suoni fastidiosi (richiede Javascript) */
+.btn:hover {
+    /* Aggiungi suono al passaggio del mouse */
+}
+.btn:active {
+    /* Aggiungi suono al clic */
+}
