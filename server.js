@@ -74,5 +74,14 @@ export default async function createServer() {
         return res.view("./views/about.ejs");
     });
 
+    app.get("/create", async (req, res) => {
+        return res.view("./assets/create.ejs");
+    });
+
+    app.post("/create", async (req, res) => {
+        app.log.info(req.body);
+        return "ciao";
+    });
+
     return app;
 }
