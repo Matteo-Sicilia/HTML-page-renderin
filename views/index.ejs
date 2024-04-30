@@ -1,6 +1,6 @@
 <div class="row m-4">
-    <% if (!!session) {%>
-        <h3>Username: <%= session?.username %></h3>
+    <% if (session) {%>
+    <h3>Username: <%= session?.username %></h3>
     <% } %>
     <div class="col-4">
         <a href="/create" class="btn btn-success m1">Crea</a>

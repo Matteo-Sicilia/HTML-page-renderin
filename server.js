@@ -10,6 +10,7 @@ import fastifyFormbody from "@fastify/formbody";
 import fastifyCookie from "@fastify/cookie";
 import {} from "node:crypto";
 import { randomUUID } from "node:crypto";
+import fastifySession from "@fastify/session";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -26,10 +27,14 @@ export default async function createServer() {
     });
 
     await app.register(fastifyCookie, {
-        secret: "pino",
+        secret: "gaming",
         parseOptions: {
             httpOnly: true,
         },
+    });
+
+    await app.register(fastifySession, {
+        secret: "asgdrhtufikjtnmsdepowertjasdhcnv",
     });
 
     await app.register(fastifyStatic, {
@@ -56,6 +61,7 @@ export default async function createServer() {
 
     app.get("/", async (req, res) => {
         const { delete: del, done } = req.query;
+
         let session = undefined;
         if (req.cookies.uuid) {
             const uuid = req.unsignCookie(req.cookies.uuid).value;
@@ -100,16 +106,18 @@ export default async function createServer() {
 
     app.post("/login", async (req, res) => {
         const username = req.body.username;
-
-        const uuid = randomUUID();
-        const session = {
-            uuid,
-            username,
+        app.session.user = {
+            username: username,
         };
-
-        sessions.push(session);
-        res.cookie("uuid", uuid, { signed: true });
         return res.redirect("/");
+        // const uuid = randomUUID();
+        // const session = {
+        //     uuid,
+        //     username,
+        // };
+
+        // sessions.push(session);
+        // res.cookie("uuid", uuid, { signed: true });
     });
 
     app.get("/create", async (req, res) => {
