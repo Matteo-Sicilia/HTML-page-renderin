@@ -56,8 +56,11 @@ export default async function createServer() {
 
     app.get("/", async (req, res) => {
         const { delete: del, done } = req.query;
-        const uuid = req.unsignCookie(req.cookies.uuid).value;
-        const session = sessions.find((x) => x.uuid === uuid);
+        let session = undefined;
+        if (req.cookies.uuid) {
+            const uuid = req.unsignCookie(req.cookies.uuid).value;
+            session = sessions.find((x) => x.uuid === uuid);
+        }
 
         if (del) {
             const delResult = await app.pg.query(
